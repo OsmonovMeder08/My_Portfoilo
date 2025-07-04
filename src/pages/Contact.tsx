@@ -47,7 +47,7 @@ const Contact = () => {
     },
     {
       icon: Phone,
-      label: 'Телефон',
+      label: 'phone',
       value: '+996 505 14 70 52',
       link: 'tel:+996505147052'  // Телефонный звонок
     },
@@ -102,25 +102,25 @@ const Contact = () => {
     setIsSubmitting(true);  // Включает состояние загрузки кнопки
     setSubmitStatus('idle');  // Сбрасываем статус
 
-    try {
-      // Инициализация EmailJS (замени YOUR_PUBLIC_KEY на свой ключ)
-      emailjs.init('YOUR_PUBLIC_KEY');
+try {
+  // Инициализация EmailJS (один раз, лучше делать это вне функции, но можно и здесь)
+  emailjs.init('61u2iafAkD7DnQLbC'); // ← замени на свой публичный ключ из EmailJS
 
-      // Параметры шаблона письма
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        subject: formData.subject,
-        message: formData.message,
-        to_email: 'osmonovmeder743@gmail.com'  // Твой email для получения писем
-      };
+  // Данные, которые пойдут в письмо
+  const templateParams = {
+    from_name: formData.name,        // имя отправителя
+    from_email: formData.email,      // email отправителя
+    subject: formData.subject,       // тема письма
+    message: formData.message,       // текст письма
+    to_email: 'osmonovmeder743@gmail.com'  // твой email, куда придёт письмо
+  };
 
-      // Отправка письма через EmailJS (замени YOUR_SERVICE_ID и YOUR_TEMPLATE_ID)
-      await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
-        templateParams
-      );
+  // Отправка письма (укажи свой сервис ID и шаблон ID)
+  await emailjs.send(
+    'service_4j7o3he',     // ← сюда вставь свой Service ID из EmailJS
+    'template_kyalti8',    // ← сюда вставь Template ID
+    templateParams         // ← это данные, которые попадут в письмо
+  );
 
       setSubmitStatus('success');  // Отправка успешна
       setFormData({ name: '', email: '', subject: '', message: '' });  // Очищаем форму
