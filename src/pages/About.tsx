@@ -1,5 +1,10 @@
+// Импорт React — для создания компонентов
 import React from 'react';
+
+// Импорт motion из framer-motion — для анимаций элементов
 import { motion } from 'framer-motion';
+
+// Импорт иконок из lucide-react — для визуальных элементов в блоках
 import { 
   Code, 
   Database, 
@@ -13,13 +18,15 @@ import {
   CheckCircle
 } from 'lucide-react';
 
+// Функциональный компонент About — "Обо мне"
 const About = () => {
+  // Массив с навыками (категории, иконки, цвета, технологии)
   const skills = [
     {
-      category: 'Frontend',
-      icon: Code,
-      color: 'from-blue-500 to-cyan-500',
-      technologies: ['React', 'TypeScript', 'Next.js', 'Vue.js', 'Tailwind CSS', 'SASS']
+      category: 'Frontend',               // Название категории
+      icon: Code,                        // Иконка для категории
+      color: 'from-blue-500 to-cyan-500',  // Градиент цвета для иконки
+      technologies: ['React', 'TypeScript', 'Next.js', 'Vue.js', 'Tailwind CSS', 'SASS'] // Технологии
     },
     {
       category: 'Backend',
@@ -41,46 +48,48 @@ const About = () => {
     }
   ];
 
+  // Массив с достижениями (иконка, заголовок, описание)
   const achievements = [
     {
       icon: Award,
-      title: '50+ projects',
-      description: 'Successfully completed projects'
+      title: '4+ مشاريع',
+      description: 'المشاريع المنجزة بنجاح'  // "Успешно завершённые проекты" на арабском
     },
     {
       icon: Users,
-      title: '30+ Klients',
-      description: 'Satisfied customers'
+      title: '5 عملاء',
+      description: 'العملاء الراضون'          // "Довольные клиенты"
     },
     {
       icon: Clock,
-      title: '5+ Years',
-      description: 'Experience in development'
+      title: '1+ سنوات',
+      description: 'خبرة في التطوير'          // "Опыт разработки"
     },
     {
       icon: CheckCircle,
       title: '99%',
-      description: 'Meeting deadlines'
+      description: 'الوفاء بالمواعيد النهائية' // "Соблюдение сроков"
     }
   ];
 
+  // Массив с опытом работы (период, позиция, компания, описание, технологии)
   const experience = [
     {
-      period: '2022 - Настоящее время',
+      period: '2025 - Настоящее время',
       position: 'Senior Fullstack Developer',
       company: 'TechCorp',
       description: 'Developing scalable web applications using a modern technology stack. Managing a team of developers and architectural planning.',
       technologies: ['React', 'Node.js', 'PostgreSQL', 'AWS']
     },
     {
-      period: '2020 - 2022',
+      period: '2026 - 2027',
       position: 'Frontend Developer',
       company: 'Digital Agency',
       description: 'Create interactive user interfaces and optimize web application performance.',
       technologies: ['Vue.js', 'TypeScript', 'SASS', 'Webpack']
     },
     {
-      period: '2019 - 2020',
+      period: '2025 - 20226', // Тут опечатка — вероятно 2026
       position: 'Junior Developer',
       company: 'StartupTech',
       description: 'Participation in the development of MVP products and study of modern web development technologies.',
@@ -89,48 +98,55 @@ const About = () => {
   ];
 
   return (
+    // Контейнер для всей страницы About с отступами сверху/снизу
     <div className="min-h-screen py-20">
       <div className="container mx-auto px-4">
-        {/* Hero Section */}
+
+        {/* Секция приветствия / hero */}
         <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 30 }}       // Начальное состояние анимации (прозрачность и смещение по Y)
+          animate={{ opacity: 1, y: 0 }}        // Конечное состояние анимации
+          transition={{ duration: 0.8 }}        // Время анимации
           className="text-center mb-20"
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-             About
+             عن  {/* "Обо мне" на арабском */}
             </span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            I am Meder Osmonov, an experienced fullstack developer with a passion for creating innovative solutions. I specialize in modern web technologies and mobile development.
+            أنا ميدر عثمانوف، مطور برمجيات كامل التكديس ذو خبرة، شغوفٌ بابتكار حلول مبتكرة. متخصص في تقنيات الويب الحديثة وتطوير تطبيقات الجوال.
+            {/* Краткое описание себя на арабском */}
           </p>
         </motion.section>
 
-        {/* Skills Section */}
+        {/* Секция навыков */}
         <motion.section
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.2 }}   // Задержка для плавного появления после предыдущей секции
           className="mb-20"
         >
           <h2 className="text-3xl font-bold text-center mb-12">
-            Technical skills
+            المهارات الفنية {/* "Навыки" на арабском */}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {skills.map((skill, index) => (
+            {/* Перебор навыков и рендер карточек */}
+            {skills.map((skill) => (
               <motion.div
                 key={skill.category}
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.02 }}      // Увеличение при наведении
                 className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 hover:border-purple-500/50 transition-all duration-300"
               >
                 <div className="flex items-center mb-6">
                   <div className={`bg-gradient-to-r ${skill.color} p-3 rounded-xl mr-4`}>
+                    {/* Иконка категории */}
                     <skill.icon className="w-8 h-8 text-white" />
                   </div>
+                  {/* Название категории */}
                   <h3 className="text-2xl font-semibold">{skill.category}</h3>
                 </div>
+                {/* Технологии в категории */}
                 <div className="flex flex-wrap gap-2">
                   {skill.technologies.map((tech) => (
                     <span
@@ -146,7 +162,7 @@ const About = () => {
           </div>
         </motion.section>
 
-        {/* Achievements */}
+        {/* Секция достижений */}
         <motion.section
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -154,15 +170,16 @@ const About = () => {
           className="mb-20"
         >
           <h2 className="text-3xl font-bold text-center mb-12">
-            Achievements
+            الإنجازات {/* "Достижения" */}
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {achievements.map((achievement, index) => (
+            {achievements.map((achievement) => (
               <motion.div
                 key={achievement.title}
                 whileHover={{ scale: 1.05 }}
                 className="text-center bg-gray-800/30 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 hover:border-purple-500/50 transition-all duration-300"
               >
+                {/* Иконка достижения */}
                 <achievement.icon className="w-12 h-12 text-purple-400 mx-auto mb-4" />
                 <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
                   {achievement.title}
@@ -173,7 +190,7 @@ const About = () => {
           </div>
         </motion.section>
 
-        {/* Experience */}
+        {/* Секция опыта */}
         <motion.section
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -181,10 +198,10 @@ const About = () => {
           className="mb-20"
         >
           <h2 className="text-3xl font-bold text-center mb-12">
-            Experience
+            خبرة {/* "Опыт" */}
           </h2>
           <div className="space-y-8">
-            {experience.map((exp, index) => (
+            {experience.map((exp) => (
               <motion.div
                 key={exp.company}
                 whileHover={{ scale: 1.01 }}
@@ -219,19 +236,21 @@ const About = () => {
           </div>
         </motion.section>
 
-        {/* Call to Action */}
+        {/* Призыв к действию */}
         <motion.section
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-center bg-gradient-to-r from-purple-900/30 to-blue-900/30 rounded-3xl p-12 border border-purple-500/20"
         >
-          <Zap className="w-16 h-16 text-yellow-400 mx-auto mb-6" />
+          {/* Иконка телефона */}
+          <Smartphone className="w-16 h-16 text-yellow-400 mx-auto mb-6" />
           <h2 className="text-3xl font-bold mb-4">
-            Ready for new challenges
+           جاهز لمواجهة التحديات الجديدة {/* Готов к новым вызовам */}
           </h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            If you have an interesting project or are looking for a reliable developer for your team, let's discuss the possibilities of cooperation.
+            إذا كان لديك مشروع مثير للاهتمام أو كنت تبحث عن مطور موثوق لفريقك، فلنناقش إمكانيات التعاون.
+            {/* Если у тебя есть интересный проект или ты ищешь надежного разработчика, давай обсудим сотрудничество */}
           </p>
           <motion.a
             href="/contact"
@@ -239,12 +258,14 @@ const About = () => {
             whileTap={{ scale: 0.95 }}
             className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 px-8 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
           >
-            Contact me
+            اتصل بي {/* Связаться со мной */}
           </motion.a>
         </motion.section>
+
       </div>
     </div>
   );
 };
 
+// Экспортируем компонент, чтобы использовать его в приложении
 export default About;

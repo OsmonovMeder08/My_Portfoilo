@@ -6,82 +6,62 @@ import {
   Smartphone, 
   Globe, 
   Database,
-  Filter,
   Code
 } from 'lucide-react';
 
 const Portfolio = () => {
+  // Хук состояния для выбранного фильтра проектов
   const [activeFilter, setActiveFilter] = useState('all');
 
+  // Массив с проектами, каждый проект — объект с разными полями
   const projects = [
     {
       id: 1,
-      title: 'Islamic_app',
-      description: 'Это приложение где можешь слушать коран и читать хадисыы.',
-      image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'AWS'],
+      title: 'Qoranify',
+      description: 'Исламский сайт с сурой Корана, хадисами и красивым дизайном.',
+      image: 'https://www.wish.hr/wp-content/uploads/2012/01/islam.jpg',
+      technologies: ['React', 'TailwindCSS', 'Vite'],
       category: 'web',
-      liveUrl: '#',
-      githubUrl: '#',
-      features: ['Responsive Design', 'Payment Integration', 'Admin Dashboard', 'Real-time Updates']
+      liveUrl: 'https://qoranify.vercel.app/',
+      githubUrl: 'https://github.com/OsmonovMeder08/qoranify',
+      features: ['Коран', 'Хадисы', 'Плеер', 'Современный UI']
     },
     {
       id: 2,
-      title: 'Mobile Banking App',
-      description: 'Безопасное мобильное приложение для банковских операций с биометрической аутентификацией.',
-      image: 'https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React Native', 'Firebase', 'Node.js', 'Express'],
-      category: 'mobile',
-      liveUrl: '#',
-      githubUrl: '#',
-      features: ['Biometric Auth', 'Real-time Transactions', 'Secure API', 'Push Notifications']
+      title: 'Instagram Clone',
+      description: 'Клон Instagram с возможностью постов, лайков и подписок.',
+      image: 'https://pac-audit.by/images/imgonline-com-ua-Resize-Z6GQA4tFD6pvLvKK.jpg',
+      technologies: ['React', 'FastAPI', 'SQLite'],
+      category: 'web',
+      liveUrl: 'https://meder-flax.vercel.app/',
+      githubUrl: 'https://github.com/OsmonovMeder08/instagram-clone',
+      features: ['Публикации', 'Лайки', 'Подписки', 'Профили']
     },
     {
       id: 3,
-      title: 'SaaS Dashboard',
-      description: 'Аналитическая панель для SaaS продукта с интерактивными графиками и отчетами в реальном времени.',
-      image: 'https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['Vue.js', 'D3.js', 'Python', 'MongoDB', 'Docker'],
+      title: 'Islamic App',
+      description: 'Приложение для прослушивания Корана и чтения хадисов.',
+      image: 'https://www.wish.hr/wp-content/uploads/2012/01/islam.jpg',
+      technologies: ['React', 'TailwindCSS', 'Audio Player'],
       category: 'web',
-      liveUrl: '#',
-      githubUrl: '#',
-      features: ['Data Visualization', 'Real-time Analytics', 'Custom Reports', 'API Integration']
+      liveUrl: 'https://islamicapp-kappa.vercel.app/',
+      githubUrl: 'https://github.com/OsmonovMeder08/islamic-app',
+      features: ['Аудио Корана', 'Хадисы', 'Мультиязык']
     },
     {
       id: 4,
-      title: 'Food Delivery App',
-      description: 'Мобильное приложение для доставки еды с геолокацией, отслеживанием заказов и интеграцией платежей.',
+      title: 'Fashion Store',
+      description: 'Магазин модной одежды с современным дизайном.',
       image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React Native', 'Google Maps', 'Firebase', 'Stripe'],
-      category: 'mobile',
-      liveUrl: '#',
-      githubUrl: '#',
-      features: ['GPS Tracking', 'Real-time Orders', 'Payment Gateway', 'Push Notifications']
-    },
-    {
-      id: 5,
-      title: 'Cloud Storage API',
-      description: 'RESTful API для облачного хранилища файлов с системой авторизации и управлением доступом.',
-      image: 'https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['Node.js', 'AWS S3', 'JWT', 'PostgreSQL', 'Redis'],
-      category: 'api',
-      liveUrl: '#',
-      githubUrl: '#',
-      features: ['File Management', 'Access Control', 'API Documentation', 'Rate Limiting']
-    },
-    {
-      id: 6,
-      title: 'Social Media Platform',
-      description: 'Социальная сеть с возможностью публикации контента, чатами и системой уведомлений.',
-      image: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['Next.js', 'Socket.io', 'MongoDB', 'Cloudinary'],
+      technologies: ['React', 'Tailwind', 'Mock API'],
       category: 'web',
-      liveUrl: '#',
-      githubUrl: '#',
-      features: ['Real-time Chat', 'Media Upload', 'Social Features', 'Responsive Design']
+      liveUrl: 'https://fashionstore-pink.vercel.app/',
+      githubUrl: 'https://github.com/OsmonovMeder08/fashion-store',
+      features: ['Категории', 'Карточки товаров', 'Адаптивный дизайн']
     }
   ];
 
+  // Массив фильтров проектов с иконками
   const filters = [
     { key: 'all', label: 'All projects', icon: Globe },
     { key: 'web', label: 'WeB-App', icon: Code },
@@ -89,6 +69,7 @@ const Portfolio = () => {
     { key: 'api', label: 'API', icon: Database }
   ];
 
+  // Отфильтрованные проекты в зависимости от выбранного фильтра
   const filteredProjects = activeFilter === 'all' 
     ? projects 
     : projects.filter(project => project.category === activeFilter);
@@ -96,14 +77,16 @@ const Portfolio = () => {
   return (
     <div className="min-h-screen py-20">
       <div className="container mx-auto px-4">
-        {/* Hero Section */}
+
+        {/* Заголовок и описание страницы */}
         <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 30 }}  // анимация появления (из ниоткуда снизу)
+          animate={{ opacity: 1, y: 0 }}   // конечное состояние — полностью видимый, на месте
+          transition={{ duration: 0.8 }}   // длительность анимации 0.8 сек
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            {/* Градиентный текст */}
             <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
               My projects
             </span>
@@ -113,82 +96,88 @@ const Portfolio = () => {
           </p>
         </motion.section>
 
-        {/* Filter Buttons */}
+        {/* Кнопки фильтров проектов */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex flex-wrap justify-center gap-4 mb-12"
         >
           {filters.map((filter) => (
             <button
               key={filter.key}
-              onClick={() => setActiveFilter(filter.key)}
+              onClick={() => setActiveFilter(filter.key)}  // при клике меняем фильтр
               className={`flex items-center space-x-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                 activeFilter === filter.key
-                  ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg'
-                  : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50 border border-gray-700'
+                  ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg' // активный фильтр
+                  : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50 border border-gray-700' // неактивный
               }`}
             >
-              <filter.icon className="w-4 h-4" />
-              <span>{filter.label}</span>
+              <filter.icon className="w-4 h-4" /> {/* иконка фильтра */}
+              <span>{filter.label}</span> {/* название фильтра */}
             </button>
           ))}
         </motion.div>
 
-        {/* Projects Grid */}
+        {/* Сетка проектов с анимацией */}
         <AnimatePresence mode="wait">
           <motion.div
-            key={activeFilter}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            key={activeFilter} // перезапускаем анимацию при смене фильтра
+            initial={{ opacity: 0, y: 20 }}  // старт анимации
+            animate={{ opacity: 1, y: 0 }}    // конечное состояние
+            exit={{ opacity: 0, y: -20 }}     // анимация ухода
             transition={{ duration: 0.5 }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 30 }}            // анимация появления каждого проекта с задержкой
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }} // задержка по индексу для последовательности
+                whileHover={{ y: -5 }}                      // подъем карточки при наведении
                 className="group bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all duration-300 shadow-lg hover:shadow-2xl"
               >
-                {/* Project Image */}
+                {/* Изображение проекта с эффектом масштабирования при наведении */}
                 <div className="relative overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
+                  {/* Появляющийся градиент иконок ссылки при наведении */}
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute top-4 right-4 flex space-x-2">
                     <a
                       href={project.liveUrl}
                       className="p-2 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300"
+                      target="_blank" rel="noopener noreferrer"
                     >
                       <ExternalLink className="w-4 h-4 text-white" />
                     </a>
                     <a
                       href={project.githubUrl}
                       className="p-2 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 delay-75"
+                      target="_blank" rel="noopener noreferrer"
                     >
                       <Github className="w-4 h-4 text-white" />
                     </a>
                   </div>
                 </div>
 
-                {/* Project Content */}
+                {/* Контент проекта */}
                 <div className="p-6">
+                  {/* Заголовок проекта */}
                   <h3 className="text-xl font-semibold mb-3 group-hover:text-purple-400 transition-colors">
                     {project.title}
                   </h3>
+
+                  {/* Описание */}
                   <p className="text-gray-400 mb-4 leading-relaxed">
                     {project.description}
                   </p>
 
-                  {/* Features */}
+                  {/* Особенности проекта */}
                   <div className="mb-4">
                     <div className="flex flex-wrap gap-1 mb-3">
                       {project.features.map((feature) => (
@@ -202,7 +191,7 @@ const Portfolio = () => {
                     </div>
                   </div>
 
-                  {/* Technologies */}
+                  {/* Технологии, использованные в проекте */}
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                       <span
@@ -219,7 +208,7 @@ const Portfolio = () => {
           </motion.div>
         </AnimatePresence>
 
-        {/* Call to Action */}
+        {/* Призыв к действию — обсудить проект */}
         <motion.section
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

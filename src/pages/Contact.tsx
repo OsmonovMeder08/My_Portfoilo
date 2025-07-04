@@ -1,5 +1,10 @@
+// Импорт React и хуков для работы с состоянием
 import React, { useState } from 'react';
+
+// Импорт компонентов для анимаций из библиотеки framer-motion
 import { motion } from 'framer-motion';
+
+// Импорт иконок из lucide-react
 import { 
   Mail, 
   Phone, 
@@ -12,39 +17,49 @@ import {
   CheckCircle,
   AlertCircle
 } from 'lucide-react';
+
+// Импорт библиотеки emailjs для отправки email через форму
 import emailjs from '@emailjs/browser';
 
+// Функциональный компонент Contact — страница "Контакты"
 const Contact = () => {
+  // Хук useState для хранения данных формы: имя, email, тема и сообщение
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: ''
   });
+
+  // Стейт, показывающий, отправляется ли сейчас форма (для блокировки кнопки)
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Стейт для статуса отправки: idle (ничего не происходит), success (успех), error (ошибка)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
+  // Контактная информация с иконками, текстом и ссылками
   const contactInfo = [
     {
       icon: Mail,
       label: 'Email',
       value: 'osmonovmeder743@gmail.com',
-      link: 'osmonovmeder743@gmail.com'
+      link: 'mailto:osmonovmeder743@gmail.com'  // mailto-ссылка для почты
     },
     {
       icon: Phone,
       label: 'Телефон',
       value: '+996 505 14 70 52',
-      link: 'tel:+996505147052'
+      link: 'tel:+996505147052'  // Телефонный звонок
     },
     {
       icon: MapPin,
       label: 'Location',
       value: 'Bishkek, Kyrgyzstan',
-      link: '#'
+      link: '#'  // Можно заменить на карту или что-то другое
     }
   ];
 
+  // Социальные ссылки с иконками и цветом при наведении
   const socialLinks = [
     {
       icon: Github,
@@ -64,7 +79,7 @@ const Contact = () => {
       url: 'https://t.me/@Meder_2008',
       color: 'hover:text-blue-500'
     },
-     {
+    {
       icon: MessageCircle,
       label: 'WatsApp',
       url: 'https://www.whatsapp.com/',
@@ -72,6 +87,7 @@ const Contact = () => {
     }
   ];
 
+  // Обработчик изменения в инпутах и textarea — обновляет состояние formData
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -80,44 +96,47 @@ const Contact = () => {
     }));
   };
 
+  // Обработчик отправки формы
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
+    e.preventDefault();  // Предотвращает перезагрузку страницы при отправке
+    setIsSubmitting(true);  // Включает состояние загрузки кнопки
+    setSubmitStatus('idle');  // Сбрасываем статус
 
     try {
-      // Initialize EmailJS with your public key
-      emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your actual public key
+      // Инициализация EmailJS (замени YOUR_PUBLIC_KEY на свой ключ)
+      emailjs.init('YOUR_PUBLIC_KEY');
 
+      // Параметры шаблона письма
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
         subject: formData.subject,
         message: formData.message,
-        to_email: 'osmonovmeder743@gmail.com' // Replace with your actual email
+        to_email: 'osmonovmeder743@gmail.com'  // Твой email для получения писем
       };
 
-      // Send email using EmailJS
+      // Отправка письма через EmailJS (замени YOUR_SERVICE_ID и YOUR_TEMPLATE_ID)
       await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your service ID
-        'YOUR_TEMPLATE_ID', // Replace with your template ID
+        'YOUR_SERVICE_ID',
+        'YOUR_TEMPLATE_ID',
         templateParams
       );
 
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      setSubmitStatus('success');  // Отправка успешна
+      setFormData({ name: '', email: '', subject: '', message: '' });  // Очищаем форму
     } catch (error) {
       console.error('Error sending email:', error);
-      setSubmitStatus('error');
+      setSubmitStatus('error');  // Ошибка при отправке
     } finally {
-      setIsSubmitting(false);
+      setIsSubmitting(false);  // Выключаем индикатор загрузки
     }
   };
 
   return (
     <div className="min-h-screen py-20">
       <div className="container mx-auto px-4">
-        {/* Hero Section */}
+
+        {/* Заголовок и описание */}
         <motion.section
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -135,8 +154,10 @@ const Contact = () => {
           </p>
         </motion.section>
 
+        {/* Основная сетка с формой и контактной информацией */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
+
+          {/* Форма обратной связи */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -148,7 +169,9 @@ const Contact = () => {
               Send the Message
             </h2>
 
+            {/* Форма */}
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Имя и Email */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
@@ -161,8 +184,8 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-200"
                     placeholder="Your Name"
+                    className="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-200"
                   />
                 </div>
                 <div>
@@ -176,12 +199,13 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-200"
                     placeholder="your@email.com"
+                    className="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-200"
                   />
                 </div>
               </div>
 
+              {/* Тема */}
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
                   Topic *
@@ -193,11 +217,12 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  className="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-200"
                   placeholder="Topic Messages"
+                  className="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-200"
                 />
               </div>
 
+              {/* Сообщение */}
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                   Message *
@@ -209,12 +234,12 @@ const Contact = () => {
                   onChange={handleInputChange}
                   required
                   rows={6}
-                  className="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-200 resize-none"
                   placeholder="Tell us about your project or ask a question..."
+                  className="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-200 resize-none"
                 />
               </div>
 
-              {/* Submit Status */}
+              {/* Статусы отправки */}
               {submitStatus === 'success' && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
@@ -237,6 +262,7 @@ const Contact = () => {
                 </motion.div>
               )}
 
+              {/* Кнопка отправки */}
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
@@ -259,14 +285,14 @@ const Contact = () => {
             </form>
           </motion.div>
 
-          {/* Contact Info */}
+          {/* Блок с контактной информацией и соцсетями */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="space-y-8"
           >
-            {/* Contact Details */}
+            {/* Контактные данные */}
             <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8">
               <h3 className="text-2xl font-bold mb-6">Contact information</h3>
               <div className="space-y-6">
@@ -277,7 +303,7 @@ const Contact = () => {
                     whileHover={{ scale: 1.02 }}
                     className="flex items-center p-4 bg-gray-700/30 rounded-xl hover:bg-gray-700/50 transition-all duration-200 group block"
                   >
-                    <div className="bg-gradient-to-r from-purple-500 to-blue-500 p-3 rounded-lg mr-4 group-hover:scale-110 transition-transform duration-200">
+                    <div className={`bg-gradient-to-r from-purple-500 to-blue-500 p-3 rounded-lg mr-4 group-hover:scale-110 transition-transform duration-200`}>
                       <info.icon className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -289,7 +315,7 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Social Links */}
+            {/* Социальные сети */}
             <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8">
               <h3 className="text-2xl font-bold mb-6">Social Society</h3>
               <div className="flex space-x-4">
@@ -309,9 +335,10 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Availability */}
+            {/* Блок доступности */}
             <div className="bg-gradient-to-r from-green-900/30 to-emerald-900/30 border border-green-500/20 rounded-2xl p-8">
               <div className="flex items-center mb-4">
+                {/* Зеленый пульсирующий кружок */}
                 <div className="w-3 h-3 bg-green-400 rounded-full mr-3 animate-pulse"></div>
                 <h3 className="text-xl font-bold text-green-400">Available for projects</h3>
               </div>
@@ -324,10 +351,12 @@ const Contact = () => {
               </div>
             </div>
           </motion.div>
+
         </div>
       </div>
     </div>
   );
 };
 
+// Экспорт компонента Contact
 export default Contact;
