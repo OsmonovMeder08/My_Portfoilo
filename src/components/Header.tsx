@@ -10,10 +10,11 @@ import { Link, useLocation } from 'react-router-dom';
 // Menu — иконка меню "бургер"
 // X — крестик (закрытие меню)
 // Code и Filter — декоративные иконки
-import { Menu, X, Code, Filter } from 'lucide-react';
+import { Menu, X, Code, Filter, Book, BaggageClaim, BadgeDollarSign, Brain, Cat, Bird, LucideBone, Home, Notebook, NotebookIcon, BookA, BookMarked, BookImage, BookAIcon } from 'lucide-react';
 
 // Импорт анимаций из Framer Motion
 import { motion, AnimatePresence } from 'framer-motion';
+import Portfolio from '../pages/Portfolio';
 
 // Функциональный компонент Header
 const Header = () => {
@@ -59,7 +60,7 @@ const Header = () => {
           {/* Логотип / Название сайта */}
           <Link to="/" className="flex items-center space-x-2 text-xl font-bold">
             <div className="bg-gradient-to-r from-purple-500 to-blue-500 p-2 rounded-lg">
-              <Filter className="w-6 h-6 text-white" />
+              <BookAIcon className="w-6 h-6 text-white" />
             </div>
             <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
               Osmonov Meder
