@@ -80,7 +80,7 @@ const Home = () => {
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
-                 href="/My CV.pdf"
+                 href="/my-cv.pdf"
                  download
                 className="group border-2 border-purple-500 hover:bg-purple-500 px-8 py-4 rounded-full font-semibold transition-all duration-200 flex items-center justify-center transform hover:scale-105">
                 <Download className="mr-2 w-5 h-5" />
