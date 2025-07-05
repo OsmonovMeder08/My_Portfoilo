@@ -20,9 +20,9 @@ const Footer = () => {
           {/* Левая часть — имя и профессия */}
           <div className="text-center md:text-left mb-6 md:mb-0">
             <h3 className="text-xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-              عثمانوف ميدر
+              Osmonov Meder
             </h3>
-            <p className="text-gray-400">مطور فولستاك</p> {/* Fullstack Developer на арабском */}
+            <p className="text-gray-400">Full Stack Developer</p> {/* Fullstack Developer на арабском */}
           </div>
 
           {/* Центральная часть — ссылки на соцсети */}
@@ -59,7 +59,7 @@ const Footer = () => {
           {/* Правая часть — подпись "Сделано в 2025" */}
           <div className="text-center md:text-right">
             <p className="text-gray-400 flex items-center justify-center md:justify-end">
-              صنع <Moon className="w-4 h-4 mx-1 text-red-500" /> في عام 2025
+              Made <Moon className="w-4 h-4 mx-1 text-red-500" /> in 2025
               {/* "Сделано 🌙 в 2025 году" на арабском */}
             </p>
           </div>

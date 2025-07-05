@@ -52,23 +52,23 @@ const About = () => {
   const achievements = [
     {
       icon: Award,
-      title: '4+ مشاريع',
-      description: 'المشاريع المنجزة بنجاح'  // "Успешно завершённые проекты" на арабском
+      title: '4+ Projects',
+      description: 'Successfully completed projects'  // "Успешно завершённые проекты" на арабском
     },
     {
       icon: Users,
-      title: '5 عملاء',
-      description: 'العملاء الراضون'          // "Довольные клиенты"
+      title: '5 Clients',
+      description: 'Satisfied customers'          // "Довольные клиенты"
     },
     {
       icon: Clock,
-      title: '1+ سنوات',
-      description: 'خبرة في التطوير'          // "Опыт разработки"
+      title: '1+ Years',
+      description: 'Development experience'          // "Опыт разработки"
     },
     {
       icon: CheckCircle,
       title: '99%',
-      description: 'الوفاء بالمواعيد النهائية' // "Соблюдение сроков"
+      description: 'meeting deadlines' // "Соблюдение сроков"
     }
   ];
 
@@ -111,11 +111,14 @@ const About = () => {
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-             عن  {/* "Обо мне" на арабском */}
+               About  {/* "Обо мне" на арабском */}
             </span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            أنا ميدر عثمانوف، مطور برمجيات كامل التكديس ذو خبرة، شغوفٌ بابتكار حلول مبتكرة. متخصص في تقنيات الويب الحديثة وتطوير تطبيقات الجوال.
+            I am  Osmonov Meder, an experienced full-stack software developer with a passion for creating innovative solutions.
+            I specialize in modern web technologies and mobile app development.
+            i  am 17 year old and i live in Kyrgzstan at capital of Bishkek.  And my favourite sport it is football and right now i study at Sakymbekov University. 
+            And my big dream  visiting and live Mecca or Madinah 
             {/* Краткое описание себя на арабском */}
           </p>
         </motion.section>
@@ -128,7 +131,7 @@ const About = () => {
           className="mb-20"
         >
           <h2 className="text-3xl font-bold text-center mb-12">
-            المهارات الفنية {/* "Навыки" на арабском */}
+            Technical skills{/* "Навыки" на арабском */}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Перебор навыков и рендер карточек */}
@@ -170,7 +173,7 @@ const About = () => {
           className="mb-20"
         >
           <h2 className="text-3xl font-bold text-center mb-12">
-            الإنجازات {/* "Достижения" */}
+               Achievements {/* "Достижения" */}
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {achievements.map((achievement) => (
@@ -198,7 +201,7 @@ const About = () => {
           className="mb-20"
         >
           <h2 className="text-3xl font-bold text-center mb-12">
-            خبرة {/* "Опыт" */}
+              Experience {/* "Опыт" */}
           </h2>
           <div className="space-y-8">
             {experience.map((exp) => (
@@ -246,10 +249,10 @@ const About = () => {
           {/* Иконка телефона */}
           <Smartphone className="w-16 h-16 text-yellow-400 mx-auto mb-6" />
           <h2 className="text-3xl font-bold mb-4">
-           جاهز لمواجهة التحديات الجديدة {/* Готов к новым вызовам */}
+           Ready to face new challenges {/* Готов к новым вызовам */}
           </h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            إذا كان لديك مشروع مثير للاهتمام أو كنت تبحث عن مطور موثوق لفريقك، فلنناقش إمكانيات التعاون.
+            If you have an interesting project or are looking for a reliable developer for your team, let's discuss collaboration possibilities.
             {/* Если у тебя есть интересный проект или ты ищешь надежного разработчика, давай обсудим сотрудничество */}
           </p>
           <motion.a
@@ -258,7 +261,7 @@ const About = () => {
             whileTap={{ scale: 0.95 }}
             className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 px-8 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
           >
-            اتصل بي {/* Связаться со мной */}
+            Contact Me{/* Связаться со мной */}
           </motion.a>
         </motion.section>
 

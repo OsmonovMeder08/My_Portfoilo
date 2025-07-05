@@ -55,15 +55,14 @@ const Home = () => {
               <h1 className="text-5xl md:text-7xl font-bold mb-4">
                 {/* Имя с градиентной заливкой текста */}
                 <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                  عثمانوف ميدر
+                  Osmonov Meder
                 </span>
               </h1>
               <h2 className="text-2xl md:text-3xl text-gray-300 mb-6">
-                مطور فولستاك
+                Fullstack developer
               </h2>
               <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-8 leading-relaxed">
-                أُنشئ تطبيقات ويب حديثة باستخدام أحدث التقنيات. أتخصص في React وNode.js وحلول الحوسبة السحابية.
-              </p>
+                     I build modern web applications using the latest technologies. I specialize in React, Node.js, and cloud computing solutions.              </p>
             </motion.div>
 
             {/* Кнопки "Портфолио" и "Скачать резюме" с анимацией */}
@@ -77,7 +76,7 @@ const Home = () => {
                 to="/portfolio"
                 className="group bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 px-8 py-4 rounded-full font-semibold transition-all duration-200 flex items-center justify-center transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
-                عرض الأعمال
+                Show business
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
@@ -85,7 +84,7 @@ const Home = () => {
                 className="group border-2 border-purple-500 hover:bg-purple-500 px-8 py-4 rounded-full font-semibold transition-all duration-200 flex items-center justify-center transform hover:scale-105"
               >
                 <Download className="mr-2 w-5 h-5" />
-                تحميل السيرة الذاتية
+                Download CV
               </a>
             </motion.div>
 
@@ -106,8 +105,8 @@ const Home = () => {
                   <skill.icon className={`w-12 h-12 ${skill.color} mb-4 mx-auto`} />
                   <h3 className="text-xl font-semibold mb-2">{skill.name}</h3>
                   <p className="text-gray-400 text-sm">
-                    التطوير المهني باستخدام التقنيات الحديثة
-                  </p>
+                       Professional development using modern technologies                  
+                   </p>
                 </motion.div>
               ))}
             </motion.div>

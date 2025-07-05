@@ -37,10 +37,10 @@ const Header = () => {
 
   // Навигационные пункты — путь и подпись на арабском
   const navItems = [
-    { path: '/', label: 'رئيسي' },     // Главная
-    { path: '/about', label: 'عن' },   // Обо мне
-    { path: '/portfolio', label: 'مَلَفّ' }, // Портфолио
-    { path: '/contact', label: 'اتصال' } // Контакты
+    { path: '/', label: 'Home' },     // Главная
+    { path: '/about', label: 'About' },   // Обо мне
+    { path: '/portfolio', label: 'Portfoilo' }, // Портфолио
+    { path: '/contact', label: 'Contact' } // Контакты
   ];
 
   return (
@@ -62,7 +62,7 @@ const Header = () => {
               <Filter className="w-6 h-6 text-white" />
             </div>
             <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-              عثمانوف ميدر
+              Osmonov Meder
             </span>
           </Link>
 
