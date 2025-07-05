@@ -228,7 +228,7 @@ const Portfolio = () => {
             whileTap={{ scale: 0.95 }}
             className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 px-8 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
           >
-            Обсудить проект
+            Discuss the project
           </motion.a>
         </motion.section>
       </div>
