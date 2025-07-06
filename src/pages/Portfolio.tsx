@@ -58,6 +58,17 @@ const Portfolio = () => {
       liveUrl: 'https://fashionstore-pink.vercel.app/',
       githubUrl: 'https://github.com/OsmonovMeder08/fashion-store',
       features: ['Категории', 'Карточки товаров', 'Адаптивный дизайн']
+    },
+     {
+      id: 4,
+      title: 'Course_App',
+      description: 'Course_app .',
+      image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
+      technologies: ['React', 'Tailwind', 'Mock API'],
+      category: 'web',
+      liveUrl: 'https://course-app-red.vercel.app/',
+      githubUrl: 'https://github.com/OsmonovMeder08/course-app',
+      features: ['Категории', 'запись к курсу', 'Адаптивный дизайн']
     }
   ];
 
