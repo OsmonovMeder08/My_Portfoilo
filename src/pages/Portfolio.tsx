@@ -23,7 +23,7 @@ const Portfolio = () => {
       technologies: ['React', 'TailwindCSS', 'Vite'],
       category: 'web',
       liveUrl: 'https://qoranify.vercel.app/',
-      githubUrl: 'https://github.com/OsmonovMeder08/qoranify',
+      githubUrl: 'https://github.com/OsmonovMeder08/',
       features: ['Коран', 'Хадисы', 'Плеер', 'Современный UI']
     },
     {
@@ -34,40 +34,40 @@ const Portfolio = () => {
       technologies: ['React', 'FastAPI', 'SQLite'],
       category: 'web',
       liveUrl: 'https://meder-flax.vercel.app/',
-      githubUrl: 'https://github.com/OsmonovMeder08/instagram-clone',
+      githubUrl: 'https://github.com/OsmonovMeder08/',
       features: ['Публикации', 'Лайки', 'Подписки', 'Профили']
     },
     {
       id: 3,
       title: 'Islamic App',
       description: 'Приложение для прослушивания Корана и чтения хадисов.',
-      image: 'https://www.wish.hr/wp-content/uploads/2012/01/islam.jpg',
+      image: 'https://thumbs.dreamstime.com/b/beautiful-illuminated-mosque-night-under-crescent-moon-starry-sky-perfect-ramadan-celebrations-islamic-art-projects-357849158.jpg',
       technologies: ['React', 'TailwindCSS', 'Audio Player'],
       category: 'web',
       liveUrl: 'https://islamicapp-kappa.vercel.app/',
-      githubUrl: 'https://github.com/OsmonovMeder08/islamic-app',
+      githubUrl: 'https://github.com/OsmonovMeder08/',
       features: ['Аудио Корана', 'Хадисы', 'Мультиязык']
     },
     {
       id: 4,
       title: 'Fashion Store',
       description: 'Магазин модной одежды с современным дизайном.',
-      image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'https://image1.jdomni.in/preview-theme/4/2/4/974b34f9-0e0e-491f-8529-5bbd04ee05fa.jpeg',
       technologies: ['React', 'Tailwind', 'Mock API'],
       category: 'web',
       liveUrl: 'https://fashionstore-pink.vercel.app/',
-      githubUrl: 'https://github.com/OsmonovMeder08/fashion-store',
+      githubUrl: 'https://github.com/OsmonovMeder08/',
       features: ['Категории', 'Карточки товаров', 'Адаптивный дизайн']
     },
      {
       id: 4,
       title: 'Course_App',
       description: 'Course_app .',
-      image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'https://img.freepik.com/free-photo/couple-making-heart-from-hands-sea-shore_23-2148019887.jpg?semt=ais_hybrid&w=740',
       technologies: ['React', 'Tailwind', 'Mock API'],
       category: 'web',
       liveUrl: 'https://course-app-red.vercel.app/',
-      githubUrl: 'https://github.com/OsmonovMeder08/course-app',
+      githubUrl: 'https://github.com/OsmonovMeder08/',
       features: ['Категории', 'запись к курсу', 'Адаптивный дизайн']
     }
   ];
