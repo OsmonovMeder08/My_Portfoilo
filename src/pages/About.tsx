@@ -117,7 +117,7 @@ const About = () => {
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             I am  Osmonov Meder, an experienced full-stack software developer with a passion for creating innovative solutions.
             I specialize in modern web technologies and mobile app development.
-            i  am 17 year old and i live in Kyrgzstan at capital of Bishkek.  And my favourite sport it is football and right now i study at Sakymbekov University. 
+            i  am 17 year old and i live in Kyrgzstan at capital of Bishkek.  And my favourite sport it is football and right now i study at Salymbekov University. 
             And my big dream  visiting and live Mecca or Madinah 
             {/* Краткое описание себя на арабском */}
           </p>
