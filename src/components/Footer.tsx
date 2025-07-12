@@ -7,7 +7,7 @@ import React from 'react';
 // Mail — иконка письма
 // Heart — иконка сердца (не используется здесь, можно удалить)
 // Moon — иконка луны (используется в "Сделано в 2025")
-import { Github, Linkedin, Mail, Heart, Moon } from 'lucide-react';
+import { Github, Linkedin, Mail, Moon } from 'lucide-react';
 
 // Функциональный компонент Footer (подвал сайта)
 const Footer = () => {
@@ -22,7 +22,7 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
               Osmonov Meder
             </h3>
-            <p className="text-gray-400">Full Stack Developer</p> {/* Fullstack Developer на арабском */}
+            <p className="text-white-700">FullStack Developer</p> {/* Fullstack Developer на арабском */}
           </div>
 
           {/* Центральная часть — ссылки на соцсети */}
@@ -32,7 +32,7 @@ const Footer = () => {
               href="https://github.com/OsmonovMeder08"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors duration-200 hover:scale-110 transform"
+              className="text-red-700 hover:text-white transition-colors duration-200 hover:scale-110 transform"
             >
               <Github className="w-6 h-6" />
             </a>
@@ -42,7 +42,7 @@ const Footer = () => {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors duration-200 hover:scale-110 transform"
+              className="text-green-700 hover:text-white transition-colors duration-200 hover:scale-110 transform"
             >
               <Linkedin className="w-6 h-6" />
             </a>
@@ -50,16 +50,16 @@ const Footer = () => {
             {/* Почта — нужно добавить mailto: чтобы работала как ссылка на почтовый клиент */}
             <a
               href="mailto:osmonovmeder743@gmail.com"
-              className="text-gray-400 hover:text-white transition-colors duration-200 hover:scale-110 transform"
+              className="text-yellow-700 hover:text-red transition-colors duration-200 hover:scale-110 transform"
             >
               <Mail className="w-6 h-6" />
             </a>
           </div>
 
           {/* Правая часть — подпись "Сделано в 2025" */}
-          <div className="text-center md:text-right">
-            <p className="text-gray-400 flex items-center justify-center md:justify-end">
-              Made <Moon className="w-4 h-4 mx-1 text-red-500" /> in 2025
+          <div className="text-center md:text-center">
+            <p className="text-green-400 flex items-center justify-center md:justify-end">
+              Made <Moon className="w-4 h-4 mx-1 text-purple-500" /> in 2025
               {/* "Сделано 🌙 в 2025 году" на арабском */}
             </p>
           </div>

@@ -6,9 +6,9 @@ import { motion } from 'framer-motion';
 const Home = () => {
   // Навыки с иконками и цветами для визуального выделения
   const skills = [
-    { icon: Code, name: 'Frontend Development', color: 'text-blue-400' },
-    { icon: Database, name: 'Backend Development', color: 'text-green-400' },
-    { icon: Globe, name: 'Full Stack Solutions', color: 'text-purple-400' },
+    { icon: Code, name: 'Frontend Development', color: 'text-green-400' },
+    { icon: Database, name: 'Backend Development', color: 'text-yellow-500' },
+    { icon: Globe, name: 'Full Stack Solutions', color: 'text-red-500' },
   ];
 
   return (
@@ -16,7 +16,7 @@ const Home = () => {
       {/* Главный раздел - Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Фоновый градиент */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-gray-900 to-blue-900/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-yellow-900/20 via-red-900 to-red-900/20"></div>
         
         {/* Анимированные элементы фона */}
         <div className="absolute inset-0">

@@ -76,21 +76,21 @@ const About = () => {
   const experience = [
     {
       period: '2025 - Настоящее время',
-      position: 'Senior Fullstack Developer',
+      position: 'begginer Fullstack Developer',
       company: 'TechCorp',
       description: 'Developing scalable web applications using a modern technology stack. Managing a team of developers and architectural planning.',
-      technologies: ['React', 'Node.js', 'PostgreSQL', 'AWS']
+      technologies: ['React', 'Node.js', 'PostgreSQL']
     },
     {
       period: '2026 - 2027',
-      position: 'Frontend Developer',
+      position: 'Junior Fullstack Developer',
       company: 'Digital Agency',
       description: 'Create interactive user interfaces and optimize web application performance.',
       technologies: ['Vue.js', 'TypeScript', 'SASS', 'Webpack']
     },
     {
-      period: '2025 - 20226', // Тут опечатка — вероятно 2026
-      position: 'Junior Developer',
+      period: '2027 - 2028',
+      position: 'Middle FUllstack Developer',
       company: 'StartupTech',
       description: 'Participation in the development of MVP products and study of modern web development technologies.',
       technologies: ['JavaScript', 'React', 'Express.js', 'MongoDB']
@@ -106,12 +106,12 @@ const About = () => {
         <motion.section
           initial={{ opacity: 0, y: 30 }}       // Начальное состояние анимации (прозрачность и смещение по Y)
           animate={{ opacity: 1, y: 0 }}        // Конечное состояние анимации
-          transition={{ duration: 0.8 }}        // Время анимации
+          transition={{ duration: 0.10 }}        // Время анимации
           className="text-center mb-20"
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-               About  {/* "Обо мне" на арабском */}
+               About
             </span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -122,7 +122,6 @@ const About = () => {
             {/* Краткое описание себя на арабском */}
           </p>
         </motion.section>
-
         {/* Секция навыков */}
         <motion.section
           initial={{ opacity: 0, y: 30 }}

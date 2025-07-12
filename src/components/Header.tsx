@@ -10,7 +10,7 @@ import { Link, useLocation } from 'react-router-dom';
 // Menu — иконка меню "бургер"
 // X — крестик (закрытие меню)
 // Code и Filter — декоративные иконки
-import { Menu, X, Code, Filter, Book, BaggageClaim, BadgeDollarSign, Brain, Cat, Bird, LucideBone, Home, Notebook, NotebookIcon, BookA, BookMarked, BookImage, BookAIcon } from 'lucide-react';
+import { Menu, X, Code, Filter, Book, BaggageClaim, BadgeDollarSign, Brain, Cat, Bird, LucideBone, Home, Notebook, NotebookIcon, BookA, BookMarked, BookImage, BookAIcon, Sun } from 'lucide-react';
 
 // Импорт анимаций из Framer Motion
 import { motion, AnimatePresence } from 'framer-motion';
@@ -51,7 +51,7 @@ const Header = () => {
       animate={{ y: 0 }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-gray-900/95 backdrop-blur-md shadow-lg'  // При скролле добавляем фон
+          ? 'bg-yellow-900/95 backdrop-blur-md shadow-lg'  // При скролле добавляем фон
           : 'bg-transparent'  // Без скролла — прозрачный
       }`}
     >
@@ -59,10 +59,10 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Логотип / Название сайта */}
           <Link to="/" className="flex items-center space-x-2 text-xl font-bold">
-            <div className="bg-gradient-to-r from-purple-500 to-blue-500 p-2 rounded-lg">
-              <BookAIcon className="w-6 h-6 text-white" />
+            <div className="bg-gradient-to-r from-yellow-500 to-red-500 p-2 rounded-lg">
+              <Code className="w-6 h-6 text-black" />
             </div>
-            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-yellow-400 to-green-400 bg-clip-text text-transparent">
               Osmonov Meder
             </span>
           </Link>
@@ -73,10 +73,10 @@ const Header = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`relative py-2 px-4 transition-colors duration-200 hover:text-purple-400 ${
+                className={`relative py-2 px-4 transition-colors duration-200 hover:text-yellow-400 ${
                   location.pathname === item.path
-                    ? 'text-purple-400' // Подсветка активного пункта
-                    : 'text-gray-300'
+                    ? 'text-red-400' // Подсветка активного пункта
+                    : 'text-red-300'
                 }`}
               >
                 {item.label}
@@ -112,13 +112,13 @@ const Header = () => {
               <div className="p-4 space-y-4">
                 {navItems.map((item) => (
                   <Link
-                    key={item.path}
+                    key={item.path} 
                     to={item.path}
                     onClick={() => setIsMenuOpen(false)} // Закрываем меню после клика
-                    className={`block py-2 px-4 rounded-lg transition-colors duration-200 hover:bg-gray-700 ${
+                    className={`block py-2 px-4 rounded-lg transition-colors duration-200 hover:bg-oranges-700 ${
                       location.pathname === item.path
-                        ? 'text-purple-400 bg-gray-700'
-                        : 'text-gray-300'
+                        ? 'text-red-400 bg-black-700'
+                        : 'text-green-300'
                     }`}
                   >
                     {item.label}
