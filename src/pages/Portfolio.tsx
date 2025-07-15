@@ -69,6 +69,17 @@ const Portfolio = () => {
       liveUrl: 'https://course-app-red.vercel.app/',
       githubUrl: 'https://github.com/OsmonovMeder08/',
       features: ['Категории', 'запись к курсу', 'Адаптивный дизайн']
+    },
+     {
+      id: 5,
+      title: 'ChatBot',
+      description: 'ChatBot.',
+      image: 'https://img.freepik.com/free-vector/chatbot-chat-message-vectorart_78370-4104.jpg?semt=ais_hybrid&w=740',
+      technologies: ['React', 'Tailwind', 'Mock API'],
+      category: 'web',
+      liveUrl: 'https://chat-bot-pi-lake.vercel.app/',
+      githubUrl: 'https://github.com/OsmonovMeder08/balbes',
+      features: ['Категории', 'ChatBot', 'Адаптивный дизайн']
     }
   ];
 
