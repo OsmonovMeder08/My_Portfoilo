@@ -1,68 +1,46 @@
-// Импортирует библиотеку React и хуки useState и useEffect
 import React, { useState, useEffect } from 'react';
-
-// Импорт из React Router:
-// Link — заменяет <a> и позволяет навигацию без перезагрузки
-// useLocation — узнаёт текущий путь (для подсветки активной страницы)
 import { Link, useLocation } from 'react-router-dom';
-
-// Импорт иконок из библиотеки Lucide React
-// Menu — иконка меню "бургер"
-// X — крестик (закрытие меню)
-// Code и Filter — декоративные иконки
-import { Menu, X, Code, Filter, Book, BaggageClaim, BadgeDollarSign, Brain, Cat, Bird, LucideBone, Home, Notebook, NotebookIcon, BookA, BookMarked, BookImage, BookAIcon, Sun } from 'lucide-react';
-
-// Импорт анимаций из Framer Motion
+import { Menu, X, Code } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Portfolio from '../pages/Portfolio';
 
-// Функциональный компонент Header
 const Header = () => {
-  // Состояние: открыто ли мобильное меню (бургер)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  // Состояние: был ли скролл страницы
   const [scrolled, setScrolled] = useState(false);
-
-  // Хук для отслеживания текущего маршрута (страницы)
   const location = useLocation();
 
-  // useEffect отслеживает скролл и меняет состояние scrolled
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50); // true, если прокрутили вниз больше 50px
+      setScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Навигационные пункты — путь и подпись на арабском
   const navItems = [
-    { path: '/', label: 'Home' },     // Главная
-    { path: '/about', label: 'About' },   // Обо мне
-    { path: '/portfolio', label: 'Portfoilo' }, // Портфолио
-    { path: '/contact', label: 'Contact' } // Контакты
+    { path: '/', label: 'Home' },
+    { path: '/about', label: 'About' },
+    { path: '/portfolio', label: 'Portfolio' },
+    { path: '/contact', label: 'Contact' }
   ];
 
   return (
-    // Хедер с анимацией появления сверху
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-yellow-900/95 backdrop-blur-md shadow-lg'  // При скролле добавляем фон
-          : 'bg-transparent'  // Без скролла — прозрачный
+        scrolled
+          ? 'bg-gradient-to-r from-orange-100 via-pink-100 to-yellow-100 shadow-md backdrop-blur-md'
+          : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Логотип / Название сайта */}
+          {/* Логотип */}
           <Link to="/" className="flex items-center space-x-2 text-xl font-bold">
-            <div className="bg-gradient-to-r from-yellow-500 to-red-500 p-2 rounded-lg">
-              <Code className="w-6 h-6 text-black" />
+            <div className="bg-gradient-to-r from-fuchsia-400 to-pink-400 p-2 rounded-lg shadow-md">
+              <Code className="w-6 h-6 text-yellow-100" />
             </div>
-            <span className="bg-gradient-to-r from-yellow-400 to-green-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-pink-600 to-amber-500 bg-clip-text text-transparent">
               Osmonov Meder
             </span>
           </Link>
@@ -73,52 +51,45 @@ const Header = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`relative py-2 px-4 transition-colors duration-200 hover:text-yellow-400 ${
+                className={`relative py-2 px-4 rounded-full transition duration-300 hover:bg-orange-200 hover:text-pink-700 ${
                   location.pathname === item.path
-                    ? 'text-red-400' // Подсветка активного пункта
-                    : 'text-red-300'
+                    ? 'bg-pink-200 text-orange-700 font-semibold'
+                    : 'text-purple-700'
                 }`}
               >
                 {item.label}
-                {/* Анимация подчеркивания для активной страницы */}
-                {location.pathname === item.path && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500"
-                  />
-                )}
               </Link>
             ))}
           </nav>
 
-          {/* Кнопка мобильного меню (бургер) */}
+          {/* Бургер-меню */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-800 transition-colors"
+            className="md:hidden p-2 rounded-lg bg-pink-200 hover:bg-pink-300 transition"
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMenuOpen ? <X className="w-6 h-6 text-orange-700" /> : <Menu className="w-6 h-6 text-purple-700" />}
           </button>
         </div>
 
-        {/* Мобильная навигация — появляется с анимацией */}
+        {/* Мобильное меню */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.nav
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-gray-800/95 backdrop-blur-md rounded-lg mt-2 mb-4"
+              className="md:hidden mt-2 mb-4 bg-gradient-to-br from-orange-100 via-pink-100 to-yellow-100 rounded-xl shadow-md"
             >
-              <div className="p-4 space-y-4">
+              <div className="p-4 space-y-2">
                 {navItems.map((item) => (
                   <Link
-                    key={item.path} 
+                    key={item.path}
                     to={item.path}
-                    onClick={() => setIsMenuOpen(false)} // Закрываем меню после клика
-                    className={`block py-2 px-4 rounded-lg transition-colors duration-200 hover:bg-oranges-700 ${
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block py-2 px-4 rounded-lg text-sm transition-all duration-200 ${
                       location.pathname === item.path
-                        ? 'text-red-400 bg-black-700'
-                        : 'text-green-300'
+                        ? 'bg-pink-300 text-orange-900 font-semibold'
+                        : 'text-purple-700 hover:bg-orange-200'
                     }`}
                   >
                     {item.label}
@@ -133,5 +104,4 @@ const Header = () => {
   );
 };
 
-// Экспортируем компонент, чтобы его можно было использовать в других файлах
 export default Header;

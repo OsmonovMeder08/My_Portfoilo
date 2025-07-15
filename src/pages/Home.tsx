@@ -4,108 +4,111 @@ import { ArrowRight, Download, Code, Database, Globe } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Home = () => {
-  // Навыки с иконками и цветами для визуального выделения
+  // Навыки с иконками и цветами — приглушённые средние тона
   const skills = [
-    { icon: Code, name: 'Frontend Development', color: 'text-green-400' },
-    { icon: Database, name: 'Backend Development', color: 'text-yellow-500' },
-    { icon: Globe, name: 'Full Stack Solutions', color: 'text-red-500' },
+    { icon: Code, name: 'Frontend Development', color: 'text-teal-400' },
+    { icon: Database, name: 'Backend Development', color: 'text-yellow-400' },
+    { icon: Globe, name: 'Full Stack Solutions', color: 'text-rose-400' },
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gray-600">
       {/* Главный раздел - Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Фоновый градиент */}
-        <div className="absolute inset-0 bg-gradient-to-br from-yellow-900/20 via-red-900 to-red-900/20"></div>
+        {/* Фоновый градиент с приглушёнными средними тонами */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-700 via-gray-600 to-gray-500"></div>
         
         {/* Анимированные элементы фона */}
         <div className="absolute inset-0">
           {[...Array(3)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-96 h-96 rounded-full bg-gradient-to-r from-purple-500/10 to-blue-500/10 blur-3xl"
+              className="absolute w-96 h-96 rounded-full bg-gradient-to-r from-purple-700/30 via-indigo-700/30 to-blue-700/30 blur-3xl"
               animate={{
-                x: [0, 100, 0],       // движение влево-вправо
-                y: [0, -100, 0],      // движение вверх-вниз
-                scale: [1, 1.2, 1],   // увеличение и уменьшение
+                x: [0, 80, 0],
+                y: [0, -80, 0],
+                scale: [1, 1.1, 1],
               }}
               transition={{
-                duration: 10 + i * 2, // длительность анимации растёт для каждого круга
-                repeat: Infinity,     // бесконечное повторение
-                ease: "easeInOut",    // плавность анимации
+                duration: 12 + i * 3,
+                repeat: Infinity,
+                ease: "easeInOut",
               }}
               style={{
-                left: `${20 + i * 30}%`, // позиция слева (разная для каждого круга)
-                top: `${20 + i * 20}%`,  // позиция сверху (разная)
+                left: `${25 + i * 25}%`,
+                top: `${25 + i * 15}%`,
               }}
             />
           ))}
         </div>
 
         {/* Основной контейнер с контентом */}
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center">
-            {/* Заголовок с плавным появлением */}
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center max-w-3xl mx-auto text-gray-200">
+            {/* Заголовок */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="mb-8"
+              className="mb-10"
             >
-              <h1 className="text-5xl md:text-7xl font-bold mb-4">
-                {/* Имя с градиентной заливкой текста */}
-                <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-6xl font-extrabold mb-4 leading-tight">
+                {/* Градиентный текст из средних оттенков */}
+                <span className="bg-gradient-to-r from-purple-400 via-indigo-400 to-blue-400 bg-clip-text text-transparent">
                   Osmonov Meder
                 </span>
               </h1>
-              <h2 className="text-2xl md:text-3xl text-gray-300 mb-6">
+              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-gray-300">
                 Fullstack developer
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-8 leading-relaxed">
-                     I build modern web applications using the latest technologies. I specialize in React, Node.js, and cloud computing solutions.              </p>
+              <p className="text-gray-300 text-lg max-w-xl mx-auto leading-relaxed">
+                I build modern web applications using the latest technologies. I specialize in React, Node.js, and cloud computing solutions.
+              </p>
             </motion.div>
 
-            {/* Кнопки "Портфолио" и "Скачать резюме" с анимацией */}
+            {/* Кнопки */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
+              className="flex flex-col sm:flex-row gap-6 justify-center mb-16"
             >
               <Link
                 to="/portfolio"
-                className="group bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 px-8 py-4 rounded-full font-semibold transition-all duration-200 flex items-center justify-center transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="group bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 hover:from-indigo-700 hover:via-purple-700 hover:to-blue-700 px-8 py-4 rounded-full font-semibold text-gray-100 shadow-md hover:shadow-lg transition transform hover:scale-105 flex items-center justify-center"
               >
                 Show business
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
-                 href="https://my-portfoilo-one-olive.vercel.app/my cv.pdf"
-                 download
-                className="group border-2 border-purple-500 hover:bg-purple-500 px-8 py-4 rounded-full font-semibold transition-all duration-200 flex items-center justify-center transform hover:scale-105">
+                href="https://my-portfoilo-one-olive.vercel.app/my cv.pdf"
+                download
+                className="group border-2 border-indigo-500 text-indigo-400 hover:bg-indigo-500 hover:text-gray-100 px-8 py-4 rounded-full font-semibold shadow-sm hover:shadow-md transition transform hover:scale-105 flex items-center justify-center"
+              >
                 <Download className="mr-2 w-5 h-5" />
                 Download CV
-             </a>
+              </a>
             </motion.div>
-            {/* Предварительный просмотр навыков */}
+
+            {/* Навыки */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
+              className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-4xl mx-auto"
             >
               {skills.map((skill) => (
                 <motion.div
                   key={skill.name}
                   whileHover={{ scale: 1.05 }}
-                  className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-6 hover:border-purple-500/50 transition-all duration-300"
+                  className="bg-gray-700/70 backdrop-blur-md border border-gray-600 rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 cursor-default"
                 >
                   {/* Иконка навыка */}
-                  <skill.icon className={`w-12 h-12 ${skill.color} mb-4 mx-auto`} />
-                  <h3 className="text-xl font-semibold mb-2">{skill.name}</h3>
-                  <p className="text-gray-400 text-sm">
-                       Professional development using modern technologies                  
-                   </p>
+                  <skill.icon className={`w-14 h-14 ${skill.color} mb-5 mx-auto`} />
+                  <h3 className="text-2xl font-semibold mb-3 text-gray-200">{skill.name}</h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    Professional development using modern technologies                  
+                  </p>
                 </motion.div>
               ))}
             </motion.div>

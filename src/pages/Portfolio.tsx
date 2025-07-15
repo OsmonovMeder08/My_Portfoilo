@@ -1,224 +1,195 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  ExternalLink, 
-  Github, 
-  Smartphone, 
-  Globe, 
+import {
+  ExternalLink,
+  Github,
+  Smartphone,
+  Globe,
   Database,
-  Code
+  Code,
 } from 'lucide-react';
 
 const Portfolio = () => {
-  // Хук состояния для выбранного фильтра проектов
   const [activeFilter, setActiveFilter] = useState('all');
 
-  // Массив с проектами, каждый проект — объект с разными полями
   const projects = [
-    {
-      id: 1,
-      title: 'Qoranify',
-      description: 'Исламский сайт с сурой Корана, хадисами и красивым дизайном.',
-      image: 'https://www.wish.hr/wp-content/uploads/2012/01/islam.jpg',
-      technologies: ['React', 'TailwindCSS', 'Vite'],
-      category: 'web',
-      liveUrl: 'https://qoranify.vercel.app/',
-      githubUrl: 'https://github.com/OsmonovMeder08/typoi',
-      features: ['Коран', 'Хадисы', 'Плеер', 'Современный UI']
-    },
-    {
-      id: 2,
-      title: 'Instagram Clone',
-      description: 'Клон Instagram с возможностью постов, лайков и подписок.',
-      image: 'https://pac-audit.by/images/imgonline-com-ua-Resize-Z6GQA4tFD6pvLvKK.jpg',
-      technologies: ['React', 'FastAPI', 'SQLite'],
-      category: 'web',
-      liveUrl: 'https://meder-flax.vercel.app/',
-      githubUrl: 'https://github.com/OsmonovMeder08/tajic',
-      features: ['Публикации', 'Лайки', 'Подписки', 'Профили']
-    },
-    {
-      id: 3,
-      title: 'Islamic App',
-      description: 'Приложение для прослушивания Корана и чтения хадисов.',
-      image: 'https://thumbs.dreamstime.com/b/beautiful-illuminated-mosque-night-under-crescent-moon-starry-sky-perfect-ramadan-celebrations-islamic-art-projects-357849158.jpg',
-      technologies: ['React', 'TailwindCSS', 'Audio Player'],
-      category: 'web',
-      liveUrl: 'https://islamicapp-kappa.vercel.app/',
-      githubUrl: 'https://github.com/OsmonovMeder08/urod',
-      features: ['Аудио Корана', 'Хадисы', 'Мультиязык']
-    },
-    {
-      id: 4,
-      title: 'Fashion Store',
-      description: 'Магазин модной одежды с современным дизайном.',
-      image: 'https://image1.jdomni.in/preview-theme/4/2/4/974b34f9-0e0e-491f-8529-5bbd04ee05fa.jpeg',
-      technologies: ['React', 'Tailwind', 'Mock API'],
-      category: 'web',
-      liveUrl: 'https://fashionstore-pink.vercel.app/',
-      githubUrl: 'https://github.com/OsmonovMeder08/balbes',
-      features: ['Категории', 'Карточки товаров', 'Адаптивный дизайн']
-    },
-     {
-      id: 4,
-      title: 'Course_App',
-      description: 'Course_app .',
-      image: 'https://img.freepik.com/free-photo/couple-making-heart-from-hands-sea-shore_23-2148019887.jpg?semt=ais_hybrid&w=740',
-      technologies: ['React', 'Tailwind', 'Mock API'],
-      category: 'web',
-      liveUrl: 'https://course-app-red.vercel.app/',
-      githubUrl: 'https://github.com/OsmonovMeder08/shelban',
-      features: ['Категории', 'запись к курсу', 'Адаптивный дизайн']
-    },
-     {
-      id: 5,
-      title: 'ChatBot',
-      description: 'ChatBot.',
-      image: 'https://img.freepik.com/free-vector/chatbot-chat-message-vectorart_78370-4104.jpg?semt=ais_hybrid&w=740',
-      technologies: ['React', 'Tailwind', 'Mock API'],
-      category: 'web',
-      liveUrl: 'https://chat-bot-pi-lake.vercel.app/',
-      githubUrl: 'https://github.com/OsmonovMeder08/balbes',
-      features: ['Категории', 'ChatBot', 'Адаптивный дизайн']
-    }
-  ];
+  {
+    id: 1,
+    title: 'Qoranify',
+    description: 'Исламский сайт с сурой Корана, хадисами и красивым дизайном.',
+    image: 'https://cdn.pixabay.com/photo/2017/04/12/22/51/quran-2224623_1280.jpg',
+    technologies: ['React', 'TailwindCSS', 'Vite'],
+    category: 'web',
+    liveUrl: 'https://qoranify.vercel.app/',
+    githubUrl: 'https://github.com/OsmonovMeder08/typoi',
+    features: ['Коран', 'Хадисы', 'Плеер', 'Современный UI'],
+  },
+  {
+    id: 2,
+    title: 'Instagram Clone',
+    description: 'Клон Instagram с возможностью постов, лайков и подписок.',
+    image: 'https://cdn.pixabay.com/photo/2017/01/06/19/15/instagram-1958322_1280.jpg',
+    technologies: ['React', 'FastAPI', 'SQLite'],
+    category: 'web',
+    liveUrl: 'https://meder-flax.vercel.app/',
+    githubUrl: 'https://github.com/OsmonovMeder08/tajic',
+    features: ['Публикации', 'Лайки', 'Подписки', 'Профили'],
+  },
+  {
+    id: 3,
+    title: 'Islamic App',
+    description: 'Приложение для прослушивания Корана и чтения хадисов.',
+    image: 'https://cdn.pixabay.com/photo/2019/11/04/07/14/islam-4593152_1280.jpg',
+    technologies: ['React', 'TailwindCSS', 'Audio Player'],
+    category: 'web',
+    liveUrl: 'https://islamicapp-kappa.vercel.app/',
+    githubUrl: 'https://github.com/OsmonovMeder08/urod',
+    features: ['Аудио Корана', 'Хадисы', 'Мультиязык'],
+  },
+  {
+    id: 4,
+    title: 'Fashion Store',
+    description: 'Магазин модной одежды с современным дизайном.',
+    image: 'https://cdn.pixabay.com/photo/2016/11/29/04/19/fashion-1866574_1280.jpg',
+    technologies: ['React', 'Tailwind', 'Mock API'],
+    category: 'web',
+    liveUrl: 'https://fashionstore-pink.vercel.app/',
+    githubUrl: 'https://github.com/OsmonovMeder08/balbes',
+    features: ['Категории', 'Карточки товаров', 'Адаптивный дизайн'],
+  },
+  {
+    id: 5,
+    title: 'Course_App',
+    description: 'Course_app .',
+    image: 'https://cdn.pixabay.com/photo/2017/06/20/18/15/adult-2425124_1280.jpg',
+    technologies: ['React', 'Tailwind', 'Mock API'],
+    category: 'web',
+    liveUrl: 'https://course-app-red.vercel.app/',
+    githubUrl: 'https://github.com/OsmonovMeder08/shelban',
+    features: ['Категории', 'запись к курсу', 'Адаптивный дизайн'],
+  },
+  {
+    id: 6,
+    title: 'ChatBot',
+    description: 'ChatBot.',
+    image: 'https://cdn.pixabay.com/photo/2019/11/10/21/56/artificial-intelligence-4617752_1280.jpg',
+    technologies: ['React', 'Tailwind', 'Mock API'],
+    category: 'web',
+    liveUrl: 'https://chat-bot-pi-lake.vercel.app/',
+    githubUrl: 'https://github.com/OsmonovMeder08/balbes',
+    features: ['Категории', 'ChatBot', 'Адаптивный дизайн'],
+  },
+];
 
-  // Массив фильтров проектов с иконками
   const filters = [
     { key: 'all', label: 'All projects', icon: Globe },
     { key: 'web', label: 'WeB-App', icon: Code },
     { key: 'mobile', label: 'Mobile', icon: Smartphone },
-    { key: 'api', label: 'API', icon: Database }
+    { key: 'api', label: 'API', icon: Database },
   ];
 
-  // Отфильтрованные проекты в зависимости от выбранного фильтра
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
+  const filteredProjects = activeFilter === 'all'
+    ? projects
+    : projects.filter((project) => project.category === activeFilter);
 
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen py-20 bg-gradient-to-br from-indigo-900 via-purple-800 to-indigo-800 text-gray-100">
       <div className="container mx-auto px-4">
-
-        {/* Заголовок и описание страницы */}
         <motion.section
-          initial={{ opacity: 0, y: 30 }}  // анимация появления (из ниоткуда снизу)
-          animate={{ opacity: 1, y: 0 }}   // конечное состояние — полностью видимый, на месте
-          transition={{ duration: 0.8 }}   // длительность анимации 0.8 сек
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            {/* Градиентный текст */}
-            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-              My projects
-            </span>
+          <h1 className="text-5xl font-extrabold mb-4 bg-gradient-to-r from-pink-500 to-purple-400 bg-clip-text text-transparent">
+            My Projects
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            A collection of my best works in the field of web development, mobile applications and API. Each project is created with attention to detail and modern standards.
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+            A modern showcase of my work. Clean UI, smooth interactions, fully responsive.
           </p>
         </motion.section>
 
-        {/* Кнопки фильтров проектов */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }} 
-          animate={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
-        >
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
           {filters.map((filter) => (
             <button
               key={filter.key}
-              onClick={() => setActiveFilter(filter.key)}  // при клике меняем фильтр
-              className={`flex items-center space-x-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+              onClick={() => setActiveFilter(filter.key)}
+              className={`flex items-center space-x-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 border backdrop-blur-md shadow-sm ${
                 activeFilter === filter.key
-                  ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg' // активный фильтр
-                  : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50 border border-gray-700' // неактивный
+                  ? 'bg-gradient-to-r from-pink-600 to-purple-700 text-white border-transparent shadow-lg'
+                  : 'bg-white/10 hover:bg-white/20 text-gray-300 border-gray-600'
               }`}
             >
-              <filter.icon className="w-4 h-4" /> {/* иконка фильтра */}
-              <span>{filter.label}</span> {/* название фильтра */}
+              <filter.icon className="w-5 h-5" />
+              <span>{filter.label}</span>
             </button>
           ))}
-        </motion.div>
+        </div>
 
-        {/* Сетка проектов с анимацией */}
         <AnimatePresence mode="wait">
           <motion.div
-            key={activeFilter} // перезапускаем анимацию при смене фильтра
-            initial={{ opacity: 0, y: 20 }}  // старт анимации
-            animate={{ opacity: 1, y: 0 }}    // конечное состояние
-            exit={{ opacity: 0, y: -20 }}     // анимация ухода
+            key={activeFilter}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
           >
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
-                initial={{ opacity: 0, y: 30 }}            // анимация появления каждого проекта с задержкой
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }} // задержка по индексу для последовательности
-                whileHover={{ y: -5 }}                      // подъем карточки при наведении
-                className="group bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all duration-300 shadow-lg hover:shadow-2xl"
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -8, boxShadow: '0 15px 25px rgba(255, 105, 180, 0.6)' }}
+                className="group rounded-3xl bg-gradient-to-tr from-purple-900 via-indigo-900 to-purple-800 border border-purple-700 backdrop-blur-md overflow-hidden shadow-lg transition-all duration-300"
               >
-                {/* Изображение проекта с эффектом масштабирования при наведении */}
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden rounded-t-3xl">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  {/* Появляющийся градиент иконок ссылки при наведении */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute top-4 right-4 flex space-x-2">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent group-hover:from-black/80 transition-colors duration-500 flex justify-end p-4 space-x-3 rounded-t-3xl">
                     <a
                       href={project.liveUrl}
-                      className="p-2 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300"
-                      target="_blank" rel="noopener noreferrer"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-pink-600/80 hover:bg-pink-500 p-3 rounded-full shadow-lg transition-colors"
                     >
-                      <ExternalLink className="w-4 h-4 text-white" />
+                      <ExternalLink className="text-white w-5 h-5" />
                     </a>
                     <a
                       href={project.githubUrl}
-                      className="p-2 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 delay-75"
-                      target="_blank" rel="noopener noreferrer"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-purple-600/80 hover:bg-purple-500 p-3 rounded-full shadow-lg transition-colors"
                     >
-                      <Github className="w-4 h-4 text-white" />
+                      <Github className="text-white w-5 h-5" />
                     </a>
                   </div>
                 </div>
 
-                {/* Контент проекта */}
                 <div className="p-6">
-                  {/* Заголовок проекта */}
-                  <h3 className="text-xl font-semibold mb-3 group-hover:text-purple-400 transition-colors">
+                  <h3 className="text-2xl font-bold mb-3 text-pink-400 group-hover:text-pink-300 transition-colors">
                     {project.title}
                   </h3>
-
-                  {/* Описание */}
-                  <p className="text-gray-400 mb-4 leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  {/* Особенности проекта */}
-                  <div className="mb-4">
-                    <div className="flex flex-wrap gap-1 mb-3">
-                      {project.features.map((feature) => (
-                        <span
-                          key={feature}
-                          className="text-xs bg-gray-700/50 text-gray-300 px-2 py-1 rounded-full"
-                        >
-                          {feature}
-                        </span>
-                      ))}
-                    </div>
+                  <p className="text-gray-300 mb-5">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.features.map((feature) => (
+                      <span
+                        key={feature}
+                        className="bg-pink-900/40 text-pink-300 px-3 py-1 rounded-full text-xs font-medium"
+                      >
+                        {feature}
+                      </span>
+                    ))}
                   </div>
-
-                  {/* Технологии, использованные в проекте */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-3">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 border border-purple-500/30 px-3 py-1 rounded-full text-sm text-purple-300"
+                        className="bg-purple-700/40 border border-purple-600 text-purple-300 px-4 py-1 rounded-full text-xs font-semibold"
                       >
                         {tech}
                       </span>
@@ -230,14 +201,13 @@ const Portfolio = () => {
           </motion.div>
         </AnimatePresence>
 
-        {/* Призыв к действию — обсудить проект */}
         <motion.section
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-center mt-20 bg-gradient-to-r from-purple-900/30 to-blue-900/30 rounded-3xl p-12 border border-purple-500/20"
+          className="text-center mt-20 bg-purple-900/30 border border-purple-700/20 rounded-3xl p-12 shadow-inner"
         >
-          <h2 className="text-3xl font-bold mb-4">
+          <h2 className="text-3xl font-bold mb-4 text-pink-400">
             Do you have an idea for my projects?
           </h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
@@ -248,7 +218,7 @@ const Portfolio = () => {
             href="/contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 px-8 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
+            className="inline-block bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 px-8 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
           >
             Discuss the project
           </motion.a>
