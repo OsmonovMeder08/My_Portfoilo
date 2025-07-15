@@ -23,7 +23,7 @@ const Portfolio = () => {
       technologies: ['React', 'TailwindCSS', 'Vite'],
       category: 'web',
       liveUrl: 'https://qoranify.vercel.app/',
-      githubUrl: 'https://github.com/OsmonovMeder08/',
+      githubUrl: 'https://github.com/OsmonovMeder08/typoi',
       features: ['Коран', 'Хадисы', 'Плеер', 'Современный UI']
     },
     {
@@ -34,7 +34,7 @@ const Portfolio = () => {
       technologies: ['React', 'FastAPI', 'SQLite'],
       category: 'web',
       liveUrl: 'https://meder-flax.vercel.app/',
-      githubUrl: 'https://github.com/OsmonovMeder08/',
+      githubUrl: 'https://github.com/OsmonovMeder08/tajic',
       features: ['Публикации', 'Лайки', 'Подписки', 'Профили']
     },
     {
@@ -45,7 +45,7 @@ const Portfolio = () => {
       technologies: ['React', 'TailwindCSS', 'Audio Player'],
       category: 'web',
       liveUrl: 'https://islamicapp-kappa.vercel.app/',
-      githubUrl: 'https://github.com/OsmonovMeder08/',
+      githubUrl: 'https://github.com/OsmonovMeder08/urod',
       features: ['Аудио Корана', 'Хадисы', 'Мультиязык']
     },
     {
@@ -56,7 +56,7 @@ const Portfolio = () => {
       technologies: ['React', 'Tailwind', 'Mock API'],
       category: 'web',
       liveUrl: 'https://fashionstore-pink.vercel.app/',
-      githubUrl: 'https://github.com/OsmonovMeder08/',
+      githubUrl: 'https://github.com/OsmonovMeder08/balbes',
       features: ['Категории', 'Карточки товаров', 'Адаптивный дизайн']
     },
      {
@@ -67,7 +67,7 @@ const Portfolio = () => {
       technologies: ['React', 'Tailwind', 'Mock API'],
       category: 'web',
       liveUrl: 'https://course-app-red.vercel.app/',
-      githubUrl: 'https://github.com/OsmonovMeder08/',
+      githubUrl: 'https://github.com/OsmonovMeder08/shelban',
       features: ['Категории', 'запись к курсу', 'Адаптивный дизайн']
     },
      {
